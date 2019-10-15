@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -172,4 +172,3 @@ $route['about-us.html'] = 'web/web/about_us';
 $route['gallery.html'] = 'web/web/gallery';
 $route['our-client.html'] = 'web/web/client';
 $route['contact.html'] = 'web/web/contact';
-

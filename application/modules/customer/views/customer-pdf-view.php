@@ -1,86 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Customer Information</title>
-  
+
     <style>
-        .header{
-            text-align:center;
+        .header {
+            text-align: center;
         }
-        .header .subtitle{
-            padding-top:-30px;
+
+        .header .subtitle {
+            padding-top: -30px;
         }
-        table{
-            width:100%;
-            margin:0 auto;
+
+        table {
+            width: 100%;
+            margin: 0 auto;
         }
-        #table td, #table th {
+
+        #table td,
+        #table th {
             border: 1px solid #000;
             padding: 3px;
-            font-size:11px;
-            text-align:center;
+            font-size: 11px;
+            text-align: center;
         }
-        .header{
+
+        .header {
             width: 300px;
-            height:110px;
-            margin-left:auto;
-            margin-right:auto;
-            margin-top:-20px;
+            height: 110px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -20px;
         }
-        .company_info{
-            height:80px;
+
+        .company_info {
+            height: 80px;
         }
-        .company_logo{
-            width:80px;
-            padding-left:15px;
-            float:left;
+
+        .company_logo {
+            width: 80px;
+            padding-left: 15px;
+            float: left;
         }
-        .company_name img{
-            width:25px;
-            height:25px;
-            margin-right:10px;
-            margin-top:10px;
+
+        .company_name img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            margin-top: 10px;
         }
-        .company_name{
-            margin-left:60px;
-            font-size:20px;
-            margin-top:15px;
-            float:left;
+
+        .company_name {
+            margin-left: 60px;
+            font-size: 20px;
+            margin-top: 15px;
+            float: left;
         }
-        .company_name span{
-            padding-left:5px;
+
+        .company_name span {
+            padding-left: 5px;
         }
-        .company_title{
-             position: absolute;
-            top:50px;
-            height:40px;
+
+        .company_title {
+            position: absolute;
+            top: 50px;
+            height: 40px;
         }
-        tfoot td{
-            text-align:right!important;
+
+        tfoot td {
+            text-align: right !important;
         }
-        .header_title{
-            text-align:left!important;
+
+        .header_title {
+            text-align: left !important;
         }
+
         /* #table tr:nth-child(even){background-color: #f2f2f2;} */
         @media print {
-            @page{
-            size : A4 portrait;
-                margin:0;
-                padding:0;
+            @page {
+                size: A4 portrait;
+                margin: 0;
+                padding: 0;
             }
+        }
+
+        #footer {
+            position: fixed;
+            left: 0px;
+            bottom: -20px;
+            right: 0px;
+            height: 20px;
+        }
+
+        #footer .page:after {
+            content: counter(page, decimal);
         }
     </style>
 </head>
+
 <body>
+    <div id="footer">
+        <p class="page">Page <?php $PAGE_NUM ?></p>
+    </div>
     <div class="main_wrapper">
         <div class="header">
             <div class="company_info">
                 <div class="company_name">
-                <img src="<?php echo $company_info["logo"]; ?>"><span><?= $company_info['company_name'] ?></span>
+                    <img src="<?php echo $company_info["logo"]; ?>"><span><?= $company_info['company_name'] ?></span>
                 </div>
             </div>
             <div class="company_title">
@@ -111,25 +142,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if(isset($all_customer)): ?>
-                        <?php $i=0; ?>
-                        <?php foreach($all_customer as $key=>$value):?>
-                            <tr class="">
-                                <td><?php echo $value['code']; ?></td>
-                                <td><?php echo $value['customer_name']; ?></td>
-                                <td><?php echo $value['cl']; ?></td>
-                                <td><?php echo $value['marketing_name']; ?></td>
-                                <td><?php echo $value['address']; ?></td>
-                                <td><?php echo $value['email']; ?></td>
-                                <td><?php echo $value['tel']; ?></td>
-                                <td><?php echo $value['national_id']; ?></td>
-                                <td><?php echo $value['trade']; ?></td>
-                                <td><?php echo $value['security_cheque']; ?></td>
-                                <td><?php echo $value['customer_bank']; ?></td>
-                                <td><?php echo $value['amount']; ?></td>
-                            </tr>
-                        <?php endforeach;?>
-                    <?php endif; ?>
+                        <?php if (isset($all_customer)) : ?>
+                            <?php $i = 0; ?>
+                            <?php foreach ($all_customer as $key => $value) : ?>
+                                <tr class="">
+                                    <td><?php echo $value['code']; ?></td>
+                                    <td><?php echo $value['customer_name']; ?></td>
+                                    <td><?php echo $value['cl']; ?></td>
+                                    <td><?php echo $value['marketing_name']; ?></td>
+                                    <td><?php echo $value['address']; ?></td>
+                                    <td><?php echo $value['email']; ?></td>
+                                    <td><?php echo $value['tel']; ?></td>
+                                    <td><?php echo $value['national_id']; ?></td>
+                                    <td><?php echo $value['trade']; ?></td>
+                                    <td><?php echo $value['security_cheque']; ?></td>
+                                    <td><?php echo $value['customer_bank']; ?></td>
+                                    <td><?php echo $value['amount']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -141,4 +172,5 @@
         </div>
     </div>
 </body>
+
 </html>
