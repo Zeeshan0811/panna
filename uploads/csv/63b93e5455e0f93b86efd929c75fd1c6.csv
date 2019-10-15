@@ -1,0 +1,8 @@
+company id(req),branch id(req),name,marketing id,owner name,address,email,telephone,nid,trade lincense,security cheque,bank id,amount
+1,2,jjj,1,sds,jhkj,nkn,212,21,251,34,2,1222
+1,2,jjj,1,sds,jhkj,nkn,213,22,252,35,2,1222
+1,2,jjj,1,sds,jhkj,nkn,214,23,253,36,2,1222
+1,2,jjj,1,sds,jhkj,nkn,215,24,254,37,2,1222
+1,2,jjj,1,sds,jhkj,nkn,216,25,255,38,2,1222
+1,2,jjj,1,sds,jhkj,nkn,,,,39,,
+1,2,,,,,,,,,,,

@@ -1,0 +1,29 @@
+#clients img{
+    height: 80px!important;
+    opacity: 1;
+}
+#sendmessage{
+    display: none;
+}
+.copy_text{
+    float: left;
+}
+.dev_text{
+    float: right;
+}
+.carousel-indicators{
+    display: none!important;
+}
+#about{
+    padding: 15px 0 80px 0;
+}
+#contact,#clients,#portfolio{
+    padding: 10px 0;
+}
+.carousel-background img{
+    width: 1920px!important;
+    height: 1200px!important;
+}
+.section-header p{
+    text-align: justify!important;
+}

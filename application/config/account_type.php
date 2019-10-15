@@ -1,0 +1,19 @@
+<?php
+$config['account_type']=array(
+    "1"=>array(
+        "name"=>"ASSETS",
+        "type"=>"Dr",
+    ),
+    "2"=>array(
+        "name"=>"EXPENSE",
+        "type"=>"Dr",
+    ),
+    "3"=>array(
+        "name"=>"INCOME",
+        "type"=>"Cr",
+    ),
+    "4"=>array(
+        "name"=>"LIABILITIES",
+        "type"=>"Cr",
+    ),
+);

@@ -1,0 +1,15 @@
+{
+    "name": "saddam/application",
+    "authors": [
+        {
+            "name": "Shipan Mazumder",
+            "email": "shipanmazumder@gmail.com"
+        }
+    ],
+    "require": {
+        "mike42/escpos-php": "^2.1",
+        "picqer/php-barcode-generator": "^0.3.0",
+        "dompdf/dompdf": "^0.8.3",
+        "sinergi/browser-detector": "^6.1"
+    }
+}

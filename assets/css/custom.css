@@ -1,0 +1,393 @@
+.req{
+    color: #ff0000;
+}
+.navbar-default,.topbar .topbar-left 
+{
+    background-color: #ce31eb!important;
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 60px;
+height: 34px;
+}
+
+.switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #3BC0C3;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #3BC0C3;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+.dataTables_paginate,.dataTables_filter{
+    float: right;
+    font-size: 11px;
+}
+.ms-container {
+    width: 100%!important;
+}
+.ms-container .ms-selectable li.ms-elem-selectable,
+.ms-container .ms-selection li.ms-elem-selection {
+    padding: 8px 10px;
+}
+#search_data_success,
+#search_data_error,
+#search_data_delete {
+    position: fixed;
+    background-color: #256b07;
+    box-shadow: 0 0 15px #999;
+    top: 10px !important;
+    left: 50%;
+    padding: 10px 50px;
+    border-radius: 3px;
+    color: #fff;
+    display: none;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.show_search_data_success {
+    top: 10px !important;
+}
+
+#search_data_error {
+    background-color: red !important;
+}
+.box-head {
+    background: #95B533;
+    padding: 5px;
+    height: 30px;
+    /* border: 2px solid yellow; */
+    line-height: 23px;
+    margin-bottom: 20px;
+    margin-top: -18px;
+}
+.box-head span{
+    font-size: 15px;
+    color: #fff;
+    margin-left: 10px;
+}
+.side-menu,#sidebar-menu{
+    background: #222D32!important;
+}
+#sidebar-menu li a{
+    color: #fff!important;
+}
+#sidebar-menu > ul > li > a.active, #sidebar-menu > ul > li > a.active.subdrop,.subdrop {
+    background: #2C3B41 !important;
+}
+#sidebar-menu ul ul {
+    background: #222D32 !important;
+    }
+#sidebar-menu ul ul .active a {
+    color: #48bf16!important;
+    }
+/* .nav-head{
+    margin-bottom: 20px;
+    margin-top:-18px;
+}
+.nav-head .navbar-default{
+    background: #95B533!important;
+}
+.nav-head .nav > li > a{
+line-height: 30px!important;
+padding: 10px 0px 10px 10px!important;
+} */
+
+.navbar-default .navbar-toggle {
+    margin-top: 18px!important;
+    border: none!important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff!important;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background:none!important;
+}
+.navbar-default ul li a:hover {
+    background:#04c!important;
+}
+
+#datatable tr th, tr td,#tem_data tr th {
+    font-size: 11px;
+    color: #000000!important;
+}
+.dataTables_length{
+    font-size: 11px;
+}
+.dataTables_length select{
+    height: 28px!important;
+}
+.label_notice{
+    font-size: 7px;
+    color: #ff0000;
+}
+
+/* ajax loading bar*/
+.lodaing-modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../images/loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+   body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .lodaing-modal {
+    display: block;
+}
+.datatable td[rowspan] {
+    vertical-align: middle;
+    text-align: center;
+}
+.purchase_form,.purchase_form button{
+    height: 20px!important;
+    font-size: 11px!important;
+}
+.purchase_form .filter-option-inner-inner{
+    line-height: 10px!important;
+}
+.purchase_form_table tr>td{
+    color: #000000!important;
+}
+.purchase_form_table input, .purchase_form_table select, .purchase_form_table textarea{
+    color: #000000!important;
+}
+
+.datepicker table tr td.active{
+    color: #ffffff!important;
+}
+#sales_invoice {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border:1px solid #ddd;
+  }
+#sales_invoice td, #sales_invoice th {
+    border-right:1px solid #ddd;
+    border-left:none;
+    border-bottom:none;
+    border-top:none;
+    padding: 8px;
+}
+#sales_invoice th {
+    border-bottom:1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: #000;
+}
+.main-section{
+    width: 900px!important;
+}
+.left-section{
+    float: left;
+    width: 280px!important;
+}
+.middle-section{
+    width: 280px!important;
+    float: left;
+}
+.right-section{
+    width: 280px!important;
+    float: left;
+}
+
+.thumbnail .caption {
+    min-height: 38px!important;
+}
+#myNavbar ul .active a {
+    background: #186f1b!important;
+}
+
+
+.alert {
+    height: 23px!important;
+    line-height: 2px!important;
+}
+.open_balance_table,.stock_reports_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.open_balance_table td,.stock_reports_table td{
+    border: 1px solid #222222;
+    padding: 2px;
+}
+.open_balance_table th,.stock_reports_table th{
+    border:1px solid #222222;
+}
+.open_balance_table tfoot td,.open_balance_table tfoot tr{
+    border-left:1px solid #186f1b!important;
+    border-right:1px solid #186f1b!important;
+    border-top:1px solid #186f1b!important;
+    border-bottom:1px solid #186f1b!important;
+}
+.stock_reports_table td,.stock_reports_table th{
+    padding: 4px!important;
+}
+.dataTables_scrollBody thead tr[role="row"]{
+    visibility: collapse !important;
+    
+}
+.top_details{
+    width: 100%!important;
+    border: 2px solid #ddd;
+    height: 100px;
+    
+}
+.top_title,.closing_balance_title,.opening_balance,.stock_grand_total{
+    color: #0044cc!important;
+    font-size: 14px;
+    font-weight: bold;
+}
+.open_td_balance{
+    border-left:none!important; 
+}
+.closing_balance{
+    margin-top:40px!important; 
+    width: 200px;
+    text-align: center;
+    border: 2px solid #ddd;
+    padding: 5px;
+}
+.left-section-report,.customer-left-section-report{
+    height: 100px;
+    padding: 5px;
+    float: left!important;
+    width: 400px;
+}
+.right-section-report,.customer-right-section-report{
+    height: 100px;
+    margin-right:10px!important; 
+    float: right!important;
+    width: 200px;
+}
+.customer-left-section-report
+{
+    width: 300px!important;
+}
+.customer-right-section-report{
+    width: 300px!important;
+}
+.customer-right-section-report .closing_balance{
+    text-align: left;
+    width: 250px!important;
+}
+.img_show{
+    width: 80px!important;
+    height: 70px!important;
+    border: 5px solid #ddd;
+    overflow: hidden;
+}
+.img_show img{
+    width: 75px!important;
+    height: 65px!important;
+}
+.img_show img:hover{
+    cursor: pointer;
+}
+
+#column_left {
+    background-color: #515151;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #515151 !important;
+    color: #9d9d9d;
+}
+
+.nav-list > li > a {
+    color: #C4C4C4;
+    font-size: 14px;
+    padding-left: 13px !important;
+    border-bottom: 1px solid #585858;
+}
+
+.nav-list > li > a:hover {
+    background-color: #444444;
+}
+
+.gallery_box{
+    width: 220px;
+    height: 250px;
+}
+.gallery_box img{
+    /* overflow: hidden; */
+    width: 150px;
+    height: 150px;
+}
+.client_box{
+    width:150px;
+    height: 200px;
+}
+.client_box img{
+    /* overflow: hidden; */
+    width: 100px;
+    height: 100px;
+}
