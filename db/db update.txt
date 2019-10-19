@@ -1,0 +1,1 @@
+ALTER TABLE `acc_ledger` ADD `led_Id` VARCHAR(25) NOT NULL AFTER `id`;

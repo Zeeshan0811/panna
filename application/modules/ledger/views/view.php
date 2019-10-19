@@ -1,9 +1,9 @@
-<?php if(isset($all_ledger)): ?>
-    <?php foreach($all_ledger as $key=>$value):?>
+<?php if (isset($all_ledger)) : ?>
+    <?php foreach ($all_ledger as $key => $value) : ?>
         <tr>
             <td class="text-center"><?php echo ++$key; ?></td>
             <td class="text-center"><?php echo strtoupper($value['head_name']); ?></td>
-            <td class="text-center"><?php echo $value['id']; ?></td>
+            <td class="text-center"><?php echo $value['led_Id']; ?></td>
             <td class="text-center"><?php echo $value['name']; ?></td>
             <td class="actions btn-group-xs text-center">
                 <?php if (hasPermission("ledger", EDIT)) : ?>
@@ -14,5 +14,5 @@
                 <?php endif; ?>
             </td>
         </tr>
-    <?php endforeach;?>
+    <?php endforeach; ?>
 <?php endif; ?>

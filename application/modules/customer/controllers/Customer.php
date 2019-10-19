@@ -51,7 +51,9 @@ class Customer extends MY_Controller
             if ($this->form_validation->run() == TRUE) {
                 $data = $this->_get_customer_posted_data();
                 $checking_array['company_id'] = $data['company_id'];
-                $data["code"] = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
+                $code = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
+                $branch = $this->customer->get_company_info($data["company_id"], $data["branch_id"]);
+                $data["code"] = substr($branch['branch_name'], 0, 1) . $code;
                 $this->customer->trans_start();
                 $insert_id = $this->customer->insert("customer", $data);
                 if ($insert_id) {
