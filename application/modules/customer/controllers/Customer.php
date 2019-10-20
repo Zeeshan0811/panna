@@ -209,7 +209,8 @@ class Customer extends MY_Controller
     {
         if (!hasPermission("customer_info", DELETE)) {
             setMessage("msg", "warning", "Permission Denied!");
-            redirect('dashboard');
+            // redirect('dashboard');
+            $msg = 3;
         }
         $result = $this->customer->get_single("customer", array("id" => $id));
         if (isset($result)) {
@@ -219,11 +220,14 @@ class Customer extends MY_Controller
             $this->customer->trans_complete();
             if ($this->customer->trans_status() == true) {
                 setMessage("msg", "success", "Customer Delete Successfuly");
+                $msg = 1;
             } else {
                 setMessage("msg", "danger", "Something Wrong!");
+                $msg = 2;
             }
         }
-        redirect('customer');
+        // redirect('customer');
+        echo $msg;
     }
     public function _get_customer_validation()
     {
@@ -563,14 +567,17 @@ class Customer extends MY_Controller
     {
         if (!hasPermission("customer_bank", DELETE)) {
             setMessage("msg", "warning", "Permission Denied!");
-            redirect('dashboard');
+            // redirect('dashboard');
+            $msg = 3;
         }
         $result = $this->customer->get_single("customer_bank", array("id" => $id));
         if (isset($result)) {
             setMessage("msg", "success", "Bank Delete Successfuly");
+            $msg = 1;
             $this->customer->delete("customer_bank", array("id" => $id));
         }
-        redirect('customer/customerBank');
+        // redirect('customer/customerBank');
+        echo $msg;
     }
 }
 

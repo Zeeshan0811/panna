@@ -256,7 +256,8 @@ class Ledger extends MY_Controller
     {
         if (!hasPermission("ledger", DELETE)) {
             setMessage("msg", "warning", "Permission Denied!");
-            redirect('dashboard');
+            // redirect('dashboard');
+            $msg = 3;
         }
         $result = $this->ledger->get_single($this->table, array("id" => $id));
         if (isset($result)) {
@@ -277,11 +278,14 @@ class Ledger extends MY_Controller
             }
             if ($this->ledger->trans_status() == true) {
                 setMessage("msg", "success", "Delete Successfuly");
+                $msg = 1;
             } else {
                 setMessage("msg", "danger", "Something Wrong!");
+                $msg = 2;
             }
         }
-        redirect('ledger');
+        // redirect('ledger');
+        echo $msg;
     }
 }
 
