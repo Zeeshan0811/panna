@@ -103,8 +103,10 @@ class Customer extends MY_Controller
     public function get_custom_code()
     {
         if ($_GET) {
-            $checking_array['company_id'] = $this->input->get("company_id", true);
-            $result = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
+            // $checking_array['company_id'] = $this->input->get("company_id", true);
+            // $result = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
+
+            $result = ($this->customer->last_id("customer", 'id')->id + 1001);
             echo json_encode($result);
             exit;
         }
