@@ -266,6 +266,7 @@ class MY_Model extends CI_Model
 
         return $max_id;
     }
+
     public function get_main_head($acc_type = null, $status = null)
     {
         $this->db->select('MH.*,AT.name as type_name');

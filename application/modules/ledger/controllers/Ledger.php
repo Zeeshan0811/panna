@@ -79,13 +79,13 @@ class Ledger extends MY_Controller
                 $head_id_explode = explode("#", $head_id_mix);
                 $insert_id = 0;
                 if (end($head_id_explode) === "ACCOUNTS RECEIVABLE (DEBITORS)") {
-                    $data_code["code"]  = substr($branch_name, 0, 1) . $this->ledger->get_custom_id("customer", "code", 1001, $checking_array);
+                    $data_code["code"]  = substr($branch_name, 0, 1) . "-" . $this->ledger->get_custom_id("customer", "code", 1001, $checking_array);
                     $data_code['running_year'] = $this->running_year;
                     $company_info = array_merge($data, $data_code);
                     $insert_id = $this->ledger->insert("customer", $company_info);
                     $data['customer_id'] = $insert_id;
                 } else if (end($head_id_explode) === "ACCOUNTS PAYABLE (CREDITORS)") {
-                    $data_code['code'] = substr($branch_name, 0, 1) .  $this->ledger->get_custom_id("supplier", "code", 5001, $checking_array);
+                    $data_code['code'] = substr($branch_name, 0, 1) . "-" .  $this->ledger->get_custom_id("supplier", "code", 5001, $checking_array);
                     $data_code['running_year'] = $this->running_year;
                     $supplier_info = array_merge($data, $data_code);
                     $insert_id = $this->ledger->insert("supplier", $supplier_info);
@@ -102,7 +102,8 @@ class Ledger extends MY_Controller
                 $data['running_year'] = $this->running_year;
                 $head_id = $this->input->post("head_id");
 
-                $data['led_Id'] =  substr($branch_name, 0, 1) . ($this->ledger->last_id("acc_ledger", 'id')->id + 1);
+                $data['led_Id'] =  substr($branch_name, 0, 1) . "-" . ($this->ledger->last_id("acc_ledger", 'id')->id + 1001);
+                // $data['led_Id'] =  substr($branch_name, 0, 1) . "-" . $this->ledger->get_custom_id("acc_ledger", "led_Id", 1001, $checking_array);
                 $this->ledger->insert($this->table, $data);
 
                 $this->ledger->trans_complete();

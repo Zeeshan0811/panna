@@ -53,7 +53,7 @@ class Customer extends MY_Controller
                 $checking_array['company_id'] = $data['company_id'];
                 $code = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
                 $branch = $this->customer->get_company_info($data["company_id"], $data["branch_id"]);
-                $data["code"] = substr($branch['branch_name'], 0, 1) . $code;
+                // $data["code"] = substr($branch['branch_name'], 0, 1) . $code;
                 $this->customer->trans_start();
                 $insert_id = $this->customer->insert("customer", $data);
                 if ($insert_id) {
@@ -105,7 +105,6 @@ class Customer extends MY_Controller
         if ($_GET) {
             $checking_array['company_id'] = $this->input->get("company_id", true);
             $result = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
-
             echo json_encode($result);
             exit;
         }
@@ -152,12 +151,12 @@ class Customer extends MY_Controller
                 $this->_get_customer_validation();
                 if ($this->form_validation->run() == TRUE) {
                     $data = $this->_get_customer_posted_data();
-                    if ($data['company_id'] != $single['company_id']) {
-                        $checking_array['company_id'] = $data['company_id'];
-                        $data["code"] = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
-                    } else {
-                        $data['code'] = $single['code'];
-                    }
+                    // if ($data['company_id'] != $single['company_id']) {
+                    //     $checking_array['company_id'] = $data['company_id'];
+                    //     $data["code"] = $this->customer->get_custom_id("customer", "code", 1001, $checking_array);
+                    // } else {
+                    //     $data['code'] = $single['code'];
+                    // }
                     // debug_r($data);
                     $this->customer->trans_start();
                     //customer update
@@ -302,6 +301,7 @@ class Customer extends MY_Controller
         $items[] = "amount";
         $items[] = "bank_id";
         $items[] = "cl";
+        $items[] = "code";
         $data = elements($items, $_POST);
         if ($_FILES['picture']['name']) {
             $data['picture'] = "uploads/customer/" . $this->_upload_picture();

@@ -57,8 +57,8 @@ class Supplier extends MY_Controller
             $this->_get_supplier_validation();
             if ($this->form_validation->run() == TRUE) {
                 $data = $this->_get_supplier_posted_data();
-                $checking_array['company_id'] = $data['company_id'];
-                $data["code"] = $this->supplier->get_custom_id("supplier", "code", 5001, $checking_array);
+                // $checking_array['company_id'] = $data['company_id'];
+                // $data["code"] = $this->supplier->get_custom_id("supplier", "code", 5001, $checking_array);
                 $this->supplier->trans_start();
                 $insert_id = $this->supplier->insert("supplier", $data);
                 if ($insert_id) {
@@ -144,12 +144,12 @@ class Supplier extends MY_Controller
                 $this->_get_supplier_validation();
                 if ($this->form_validation->run() == TRUE) {
                     $data = $this->_get_supplier_posted_data();
-                    if ($data['company_id'] != $single['company_id']) {
-                        $checking_array['company_id'] = $data['company_id'];
-                        $data["code"] = $this->supplier->get_custom_id("supplier", "code", 5001, $checking_array);
-                    } else {
-                        $data['code'] = $single['code'];
-                    }
+                    // if ($data['company_id'] != $single['company_id']) {
+                    //     $checking_array['company_id'] = $data['company_id'];
+                    //     $data["code"] = $this->supplier->get_custom_id("supplier", "code", 5001, $checking_array);
+                    // } else {
+                    //     $data['code'] = $single['code'];
+                    // }
 
                     $ledger_data['company_id'] = $data['company_id'];
                     $ledger_data['branch_id'] = $data['branch_id'];
@@ -306,6 +306,7 @@ class Supplier extends MY_Controller
         $items[] = "owner_name";
         $items[] = "tel";
         $items[] = "email";
+        $items[] = "code";
         $data = elements($items, $_POST);
         $data['running_year'] = $this->running_year;
         return $data;

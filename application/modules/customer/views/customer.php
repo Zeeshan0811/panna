@@ -560,7 +560,14 @@
                         "company_id": company_id
                     },
                     success: function(data) {
+                        // debugger;
                         if (data != '') {
+                            var branchFirstText = $("#branch_id :selected").text().substring(0, 1);
+                            $("#code").val(data);
+                            if (branchFirstText) {
+                                var branchCode = branchFirstText.substring(0, 1);
+                                data = branchCode + "-" + data;
+                            }
                             $("#code").val(data);
                         }
                     }
