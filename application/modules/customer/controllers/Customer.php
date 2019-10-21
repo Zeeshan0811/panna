@@ -393,7 +393,8 @@ class Customer extends MY_Controller
             } //if
             if (!empty($uploadData)) {
                 $fileName = $uploadData['upload_data']['file_name'];
-                $code = $this->customer->get_custom_id("customer", "code", 1001);
+
+
                 // debug_r($code+1);
                 $data = array(); //empty array;
                 $handle = fopen(base_url() . 'uploads/csv/' . $fileName, "r");
@@ -418,15 +419,31 @@ class Customer extends MY_Controller
                             $temp_data['security_cheque'] = $data[10];
                             $temp_data['bank_id'] = $data[11];
                             $temp_data['amount'] = $data[12];
-                            $temp_data['code'] = $code;
+                            $temp_data['cl'] = 1;
+                            $temp_data['running_year'] = 1;
+                            $temp_data['status'] = 1;
+
+                            $checking_array['company_id'] = $temp_data['company_id'];
+                            $code = $this->customer->get_custom_id("customer", "code", 1001, $checking_array) ? $this->customer->get_custom_id("customer", "code", 1001, $checking_array)  : 1001;
+                            $branch = $this->customer->get_company_info($temp_data["company_id"], $temp_data["branch_id"]);
+                            $temp_data["code"] = substr($branch['branch_name'], 0, 1) . "-" . $code;
+                            // $temp_data['code'] = $code;
                         }
                         $insert_data[$row] = $temp_data;
                         $code = $code + 1;
                     }
                     $row++;
                 }
+                // echo "<pre>";
+                // print_r($insert_data);
+                // echo "</pre>";
+                // die();
                 $this->customer->trans_start();
                 $insert_id = $this->customer->insert_batch("customer", $insert_data);
+                // echo "<pre>";
+                // print_r($insert_id);
+                // echo "</pre>";
+                // die();
                 if ($insert_id) {
                     $result = $this->customer->get_single("acc_main_head", array("name" => "ACCOUNTS RECEIVABLE (DEBITORS)"));
                     for ($i = 1; $i <= count($insert_data); $i++) {
