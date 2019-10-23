@@ -196,7 +196,9 @@ class Module extends MY_Controller {
             @$this->module->delete("permission_category",array("id"=>$id));
         }
         setMessage("msg","success","Module Deleted Successfully");
-        redirect("administrator/module");
+        // redirect("administrator/module");
+        $msg = 1;
+        echo $msg;
     }
     /** ***************Function name**********************************
     * @type            : Function

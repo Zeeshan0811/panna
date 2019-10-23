@@ -1,43 +1,43 @@
 <div class="content">
-    <?php $data['msg']="Welcome To Main Head"; ?>
-    <?php $this->load->view("message",$data) ?>
+    <?php $data['msg'] = "Welcome To Main Head"; ?>
+    <?php $this->load->view("message", $data) ?>
     <div class="container">
-        <?php  if(hasPermission("main_head",ADD)): ?>
-            <?php if(isset($add)): ?>
+        <?php if (hasPermission("main_head", ADD)) : ?>
+            <?php if (isset($add)) : ?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel-group" id="accordion-test-2">
                             <div class="panel panel-border panel-info">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"> 
+                                    <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion-test-2" href="#collapseOne-2" aria-expanded="false" class="collapsed">
-                                        Add Main Head
-                                        </a> 
-                                    </h4> 
+                                            Add Main Head
+                                        </a>
+                                    </h4>
                                 </div>
-                                <div id="collapseOne-2" class="panel-collapse collapse in"> 
+                                <div id="collapseOne-2" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <form id="main_head">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="acc_type">Account Type</label><small class="req"> *</small> 
+                                                        <label for="acc_type">Account Type</label><small class="req"> *</small>
                                                         <select name="acc_type" required class="form-control selectpicker" id="acc_type">
-                                                            <?php foreach($all_type as $key=>$value): ?>
-                                                                <option  value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                                            <?php endforeach;?>
+                                                            <?php foreach ($all_type as $key => $value) : ?>
+                                                                <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="name">Head Name</label><small class="req"> *</small> 
-                                                        <input type="text" name="name" placeholder="Main Head Name" class="form-control" required id="name" >
+                                                        <label for="name">Head Name</label><small class="req"> *</small>
+                                                        <input type="text" name="name" placeholder="Main Head Name" class="form-control" required id="name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group pull-left m-t-22 m-l-15 ">
-                                                        <button  type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Add</button>
+                                                        <button type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Add</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -50,47 +50,47 @@
                 </div> <!-- End row -->
             <?php endif; ?>
         <?php endif; ?>
-        <?php  if(hasPermission("main_head",EDIT)): ?>
-            <?php if(isset($edit)): ?>
+        <?php if (hasPermission("main_head", EDIT)) : ?>
+            <?php if (isset($edit)) : ?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel-group" id="accordion-test-2">
                             <div class="panel panel-border panel-info">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"> 
+                                    <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion-test-2" href="#collapseOne-2" aria-expanded="false" class="collapsed">
-                                        Edit Main Head
-                                        </a> 
-                                    </h4> 
+                                            Edit Main Head
+                                        </a>
+                                    </h4>
                                 </div>
-                                <div id="collapseOne-2" class="panel-collapse collapse in"> 
+                                <div id="collapseOne-2" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <!-- <form id="find"> -->
-                                        <?php echo form_open("mainhead/edit/".$single->id); ?>
+                                        <?php echo form_open("mainhead/edit/" . $single->id); ?>
                                         <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label for="acc_type">Account Type</label><small class="req"> *</small> 
-                                                        <select name="acc_type" required class="form-control selectpicker" id="acc_type">
-                                                            <?php foreach($all_type as $key=>$value): ?>
-                                                                <option <?php if($value['id']==$single->acc_type) echo "selected"; ?> value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                                            <?php endforeach;?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="name">Head Name</label><small class="req"> *</small> 
-                                                        <input type="text" value="<?php echo @$single->name; ?>" name="name" placeholder="Main Head Name" class="form-control" required id="name" >
-                                                        <input type="hidden" name="id" value="<?php echo @$single->id; ?>"  required id="id" >
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group pull-left m-t-22 m-l-15 ">
-                                                        <button name="edit_company" type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Submit</button>
-                                                    </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label for="acc_type">Account Type</label><small class="req"> *</small>
+                                                    <select name="acc_type" required class="form-control selectpicker" id="acc_type">
+                                                        <?php foreach ($all_type as $key => $value) : ?>
+                                                            <option <?php if ($value['id'] == $single->acc_type) echo "selected"; ?> value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                             </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="name">Head Name</label><small class="req"> *</small>
+                                                    <input type="text" value="<?php echo @$single->name; ?>" name="name" placeholder="Main Head Name" class="form-control" required id="name">
+                                                    <input type="hidden" name="id" value="<?php echo @$single->id; ?>" required id="id">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group pull-left m-t-22 m-l-15 ">
+                                                    <button name="edit_company" type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                         </form>
                                     </div> <!-- panel-body -->
                                 </div>
@@ -105,13 +105,13 @@
                 <div class="col-md-12">
                     <div class="panel panel-border panel-info">
                         <div class="panel-heading">
-                            <h4 class="panel-title"> 
+                            <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion-test-3" href="#collapseOne-3" aria-expanded="false" class="collapsed">
-                                All Main Head
-                                </a> 
-                            </h4> 
+                                    All Main Head
+                                </a>
+                            </h4>
                         </div>
-                        <div id="collapseOne-3" class="panel-collapse collapse in"> 
+                        <div id="collapseOne-3" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -127,24 +127,24 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php if(isset($all_head)): ?>
-                                                    <?php foreach($all_head as $key=>$value):?>
-                                                        <tr>
-                                                            <td class="text-center"><?php echo ++$key; ?></td>
-                                                            <td class="text-center"><?php echo strtoupper($value['type_name']); ?></td>
-                                                            <td class="text-center"><?php echo $value['id']; ?></td>
-                                                            <td class="text-center"><?php echo $value['name']; ?></td>
-                                                            <td class="actions btn-group-xs text-center">
-                                                                <?php if (hasPermission("main_head", EDIT)) : ?>
-                                                                    <a title="Edit" href="<?php echo site_url("mainhead/edit/" . $value['id']); ?>" class=" btn btn-default btn-xs  waves-effect tooltips" data-placement="top" data-toggle="tooltip" data-original-title="View"><i class="fa fa-edit"></i></a>
-                                                                <?php endif; ?>
-                                                                <?php if (hasPermission("main_head", DELETE)) : ?>
-                                                                    <a href="<?php echo site_url("mainhead/delete/" . $value['id']); ?>" onclick="return confirm('Are You sure want to delete this?')" title="Delete" class="text-danger btn btn-default  btn-xs  waves-effect tooltips" data-placement="top" data-toggle="tooltip" data-original-title="View" id=""><i class="fa fa-trash"></i></a>
-                                                                <?php endif; ?>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach;?>
-                                                <?php endif; ?>
+                                                    <?php if (isset($all_head)) : ?>
+                                                        <?php foreach ($all_head as $key => $value) : ?>
+                                                            <tr>
+                                                                <td class="text-center"><?php echo ++$key; ?></td>
+                                                                <td class="text-center"><?php echo strtoupper($value['type_name']); ?></td>
+                                                                <td class="text-center"><?php echo $value['id']; ?></td>
+                                                                <td class="text-center"><?php echo $value['name']; ?></td>
+                                                                <td class="actions btn-group-xs text-center">
+                                                                    <?php if (hasPermission("main_head", EDIT)) : ?>
+                                                                        <a title="Edit" href="<?php echo site_url("mainhead/edit/" . $value['id']); ?>" class=" btn btn-default btn-xs  waves-effect tooltips" data-placement="top" data-toggle="tooltip" data-original-title="View"><i class="fa fa-edit"></i></a>
+                                                                    <?php endif; ?>
+                                                                    <?php if (hasPermission("main_head", DELETE)) : ?>
+                                                                        <a href="<?php echo site_url("mainhead/delete/" . $value['id']); ?>" title="Delete" class="text-danger btn btn-default  btn-xs  waves-effect tooltips deleteRow" data-placement="top" data-toggle="tooltip" data-original-title="View" id=""><i class="fa fa-trash"></i></a>
+                                                                    <?php endif; ?>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -165,45 +165,47 @@
 <script src="<?php echo VENDOR_URL; ?>notifications/notify-metro.js"></script>
 <script src="<?php echo VENDOR_URL; ?>notifications/notifications.js"></script>
 <script>
-    $(document).ready(function(){
-       $('#datatable').dataTable({
-           "info":false,
-           "autoWidth": false
-       });
+    $(document).ready(function() {
+        $('#datatable').dataTable({
+            "info": false,
+            "autoWidth": false
+        });
 
-       $('#acc_type').on('change',function(e){
+        $('#acc_type').on('change', function(e) {
             e.preventDefault();
-            var acc_type=$(this).val();
-            var url="<?php echo base_url(); ?>ajax/get_main_head_by_type";
+            var acc_type = $(this).val();
+            var url = "<?php echo base_url(); ?>ajax/get_main_head_by_type";
             $.ajax({
-                url:url,
-                type:"post",
-                data:{"acc_type":acc_type,"msg":"mainhead"},
-                success:function(data){
+                url: url,
+                type: "post",
+                data: {
+                    "acc_type": acc_type,
+                    "msg": "mainhead"
+                },
+                success: function(data) {
                     var html = '';
                     $('#datatable').DataTable().destroy();
-                     if (data != '') {
+                    if (data != '') {
                         $("#datatable tbody").html(data);
                         $('#datatable').DataTable().draw();
-                     } else {
-                         html = '<tr><td class="text-center" colspan="5">Not Found.</td></tr>';
+                    } else {
+                        html = '<tr><td class="text-center" colspan="5">Not Found.</td></tr>';
                         $("#datatable tbody").html(html);
                         $('#datatable').DataTable().draw();
-                     }
+                    }
                 }
             });
         });
 
-        $('#main_head').on('submit',function(e){
+        $('#main_head').on('submit', function(e) {
             e.preventDefault();
-            var url="<?php echo base_url(); ?>mainhead/add";
+            var url = "<?php echo base_url(); ?>mainhead/add";
             $.ajax({
-                url:url,
-                type:"post",
-                data:$(this).serialize(),
-                success:function(data){
-                    if(data!="Error")
-                    {
+                url: url,
+                type: "post",
+                data: $(this).serialize(),
+                success: function(data) {
+                    if (data != "Error") {
                         var html = '';
                         $('#datatable').DataTable().destroy();
                         if (data != '') {
@@ -211,16 +213,45 @@
                             $('#datatable').DataTable().draw();
                         } else {
                             html = '<tr><td class="text-center" colspan="5">Not Found.</td></tr>';
-                                $("#datatable tbody").html(html);
-                                $('#datatable').DataTable().draw();
+                            $("#datatable tbody").html(html);
+                            $('#datatable').DataTable().draw();
                         }
                         $.Notification.autoHideNotify('success', 'top right', 'Main Head Add Successfully');
-                    }else{
+                    } else {
                         $.Notification.autoHideNotify('error', 'top right', 'Name Already Exits');
                     }
-                     $("#name").val("");
+                    $("#name").val("");
                 }
             });
         });
+    });
+</script>
+
+<script>
+    $(document).on("click", ".deleteRow", function(e) {
+        e.preventDefault();
+        // debugger;
+        var element = $(this);
+        var confirmation = confirm('Are You sure want to delete this?');
+        var url = element.attr('href');
+
+        if (confirmation != true) {
+            return false;
+        } else {
+            $.ajax({
+                url: url,
+                cache: false,
+                success: function(data) {
+                    if (data == 1) {
+                        element.closest('tr').remove();
+                    } else if (data == 3) {
+                        alert('Warning! Permission Denied.');
+                    } else {
+                        alert('Danger! Can\'t Delete this.');
+                    }
+                    console.log(data);
+                }
+            });
+        }
     });
 </script>

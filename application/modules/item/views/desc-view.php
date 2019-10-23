@@ -1,5 +1,5 @@
-<?php if(isset($all_desc)): ?>
-    <?php foreach($all_desc as $key=>$value):?>
+<?php if (isset($all_desc)) : ?>
+    <?php foreach ($all_desc as $key => $value) : ?>
         <tr>
             <td class="text-center"><?php echo $value['code']; ?></td>
             <td class="text-center"><?php echo $value['company_name']; ?></td>
@@ -14,9 +14,9 @@
                     <a title="Edit" href="<?php echo site_url("item/itemdescription/edit/" . $value['desc_id']); ?>" class=" btn btn-default btn-xs  waves-effect tooltips" data-placement="top" data-toggle="tooltip" data-original-title="View"><i class="fa fa-edit"></i></a>
                 <?php endif; ?>
                 <?php if (hasPermission("item_description", DELETE)) : ?>
-                    <a onclick="return confirm('Are You Sure?')" href="<?php echo site_url("item/itemdescription/delete/" . $value['desc_id']); ?>" title="Delete" class="text-danger btn btn-default  btn-xs  waves-effect tooltips" data-placement="top" data-toggle="tooltip" data-original-title="View" id="course"><i class="fa fa-trash"></i></a>
+                    <a href="<?php echo site_url("item/itemdescription/delete/" . $value['desc_id']); ?>" title="Delete" class="text-danger btn btn-default  btn-xs  waves-effect tooltips deleteRow" data-placement="top" data-toggle="tooltip" data-original-title="View" id="course"><i class="fa fa-trash"></i></a>
                 <?php endif; ?>
             </td>
         </tr>
-    <?php endforeach;?>
+    <?php endforeach; ?>
 <?php endif; ?>

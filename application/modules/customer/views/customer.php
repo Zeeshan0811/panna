@@ -563,7 +563,7 @@
                         // debugger;
                         if (data != '') {
                             var branchFirstText = $("#branch_id :selected").text().substring(0, 1);
-                            $("#code").val(data);
+                            // $("#code").val(data);
                             if (branchFirstText) {
                                 var branchCode = branchFirstText.substring(0, 1);
                                 data = branchCode + "-" + data;
@@ -626,6 +626,8 @@
                         });
                         $("#marketing_id").selectpicker('render').selectpicker('refresh');
                     }
+
+                    get_custom_code();
                 }
             });
             get_view();

@@ -1,34 +1,34 @@
 <div class="content">
-    <?php $data['msg']="Welcome To Manage Gallery"; ?>
-    <?php $this->load->view("message",$data) ?>
+    <?php $data['msg'] = "Welcome To Manage Gallery"; ?>
+    <?php $this->load->view("message", $data) ?>
     <div class="container">
-        <?php  if(hasPermission("gallery",ADD)): ?>
-            <?php if(isset($add)): ?>
+        <?php if (hasPermission("gallery", ADD)) : ?>
+            <?php if (isset($add)) : ?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel">
                             <div class="panel-body">
                                 <!-- <form id="find"> -->
                                 <?php echo form_open_multipart("web_admin/admin/gallery_add"); ?>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="title">Title</label>
-                                                <input type="text" name="title" id="title" placeholder="Image Title" class="form-control" >
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="image">Image</label><span class="req">*</span><span class="label_notice">(jpg,png,jpeg, size 500KB)</span>
-                                                <input type="file" required name="image" id="image" class="form-control" >
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group pull-left m-t-22 m-l-15 ">
-                                                <button  type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Add</button>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" name="title" id="title" placeholder="Image Title" class="form-control">
                                         </div>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="image">Image</label><span class="req">*</span><span class="label_notice">(jpg,png,jpeg, size 500KB)</span>
+                                            <input type="file" required name="image" id="image" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group pull-left m-t-22 m-l-15 ">
+                                            <button type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Add</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 </form>
                             </div> <!-- panel-body -->
                         </div> <!-- panel -->
@@ -36,34 +36,34 @@
                 </div> <!-- End row -->
             <?php endif; ?>
         <?php endif; ?>
-        <?php  if(hasPermission("gallery",EDIT)): ?>
-            <?php if(isset($edit)): ?>
+        <?php if (hasPermission("gallery", EDIT)) : ?>
+            <?php if (isset($edit)) : ?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel">
                             <div class="panel-body">
                                 <!-- <form id="find"> -->
-                                <?php echo form_open_multipart("admin/galleryEdit/".$single->id); ?>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="title">Title</label>
-                                                <input type="text" value="<?= $single->title; ?>" name="title" id="title" placeholder="Image Title" class="form-control" >
-                                                <input type="hidden" required name="id" value="<?= $single->id; ?>" >
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="image">Image</label><span class="label_notice">(jpg,png,jpeg, size 500KB)</span>
-                                                <input type="file"  name="image" id="image" class="form-control" >
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group pull-left m-t-22 m-l-15 ">
-                                                <button  type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Update</button>
-                                            </div>
+                                <?php echo form_open_multipart("admin/galleryEdit/" . $single->id); ?>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" value="<?= $single->title; ?>" name="title" id="title" placeholder="Image Title" class="form-control">
+                                            <input type="hidden" required name="id" value="<?= $single->id; ?>">
                                         </div>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="image">Image</label><span class="label_notice">(jpg,png,jpeg, size 500KB)</span>
+                                            <input type="file" name="image" id="image" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group pull-left m-t-22 m-l-15 ">
+                                            <button type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Update</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 </form>
                             </div> <!-- panel-body -->
                         </div> <!-- panel -->
@@ -77,22 +77,22 @@
                     <div class="panel-body">
                         <!-- <form id="find"> -->
                         <div class="row">
-                            <?php if(isset($all_gallery)): ?>
-                                <?php foreach($all_gallery as $value): ?>
-                                    <div class="col-md-4">
-                                        <div  class="thumbnail gallery_box">
+                            <?php if (isset($all_gallery)) : ?>
+                                <?php foreach ($all_gallery as $value) : ?>
+                                    <div class="col-md-4 singlethumb">
+                                        <div class="thumbnail gallery_box">
                                             <div class="caption">
                                                 <p><?= $value['title']; ?></p>
                                             </div>
-                                        <img src="<?= base_url().$value['image_thumb']; ?>" alt="<?= $value['title']; ?>" style="width:100%">
-                                        <div class="caption">
-                                            <a href="<?= site_url("admin/galleryEdit/".$value['id']); ?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                                            <a href="<?= site_url("admin/galleryDelete/".$value['id']); ?>" onclick="return confirm('Are You Sure?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                        </div>
+                                            <img src="<?= base_url() . $value['image_thumb']; ?>" alt="<?= $value['title']; ?>" style="width:100%">
+                                            <div class="caption">
+                                                <a href="<?= site_url("admin/galleryEdit/" . $value['id']); ?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= site_url("admin/galleryDelete/" . $value['id']); ?>" class="btn btn-danger deleteRow"><i class="fa fa-trash"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                <?php endforeach;?>
-                            <?php endif;?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div> <!-- panel-body -->
                 </div> <!-- panel -->
@@ -100,3 +100,34 @@
         </div> <!-- End row -->
     </div> <!-- container -->
 </div>
+
+
+
+<script>
+    $(document).on("click", ".deleteRow", function(e) {
+        e.preventDefault();
+        // debugger;
+        var element = $(this);
+        var confirmation = confirm('Are You sure want to delete this?');
+        var url = element.attr('href');
+
+        if (confirmation != true) {
+            return false;
+        } else {
+            $.ajax({
+                url: url,
+                cache: false,
+                success: function(data) {
+                    if (data == 1) {
+                        element.closest('.singlethumb').remove();
+                    } else if (data == 3) {
+                        alert('Warning! Permission Denied.');
+                    } else {
+                        alert('Danger! Can\'t Delete this.');
+                    }
+                    console.log(data);
+                }
+            });
+        }
+    });
+</script>
